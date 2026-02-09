@@ -1,0 +1,4 @@
+:root {
+  /* Chiều cao tối đa cho menu dropdown trong header */
+  --header-height: calc(100vh - 70px);
+}

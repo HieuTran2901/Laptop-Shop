@@ -1,0 +1,172 @@
+/* ===== OVERLAY ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(37, 99, 235, 0.25),
+    rgba(0, 0, 0, 0.65)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+}
+
+/* ===== ALERT BOX ===== */
+.alert {
+  position: relative;
+  width: 380px;
+  background: linear-gradient(180deg, #ffffff, #f9fafb);
+  border-radius: 18px;
+  overflow: hidden;
+  animation: popIn 0.25s ease;
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+}
+
+/* ===== CLOSE BUTTON ===== */
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 18px;
+  color: #111827;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.15s,
+    background 0.15s;
+}
+
+.closeBtn:hover {
+  background: #e5e7eb;
+  transform: scale(1.1);
+}
+
+/* ===== IMAGE ===== */
+.imageWrapper {
+  width: 100%;
+  height: 160px;
+  /* background: linear-gradient(135deg, #eef2ff, #f8fafc); */
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.imageWrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* ===== CONTENT ===== */
+.title {
+  margin: 18px 22px 6px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #1f2937;
+  text-align: center;
+}
+
+.message {
+  margin: 0 24px 16px;
+  font-size: 14px;
+  color: #4b5563;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ===== ACTIONS ===== */
+.actions {
+  display: flex;
+  gap: 14px;
+  padding: 0 22px 18px;
+}
+
+/* LOGIN */
+.btnPrimary {
+  flex: 1;
+  padding: 12px 0;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #ffffff;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.5);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(37, 99, 235, 0.6);
+}
+
+/* REGISTER */
+.btnSecondary {
+  flex: 1;
+  padding: 12px 0;
+  background: #ffffff;
+  color: rgba(255, 0, 0, 0.64);
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid rgba(255, 0, 0, 0.725);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
+  transition:
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 0, 0, 0.83);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.45);
+}
+
+/* ===== SECURITY NOTE ===== */
+.security {
+  padding: 12px 22px 18px;
+  font-size: 12px;
+  color: #065f46;
+  text-align: center;
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  border-top: 1px solid #bbf7d0;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 420px) {
+  .alert {
+    width: 92%;
+  }
+}

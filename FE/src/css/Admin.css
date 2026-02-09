@@ -1,0 +1,124 @@
+body {
+  background: #f1f3f6;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.admin-wrapper {
+  max-width: 1300px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.admin-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #1f2937;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #111827;
+  border-left: 4px solid #2563eb;
+  padding-left: 10px;
+}
+
+/* PRODUCT LIST */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table th,
+.product-table td {
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.product-table th {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.product-table tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.product-table tr:hover {
+  background: #f3f4f6;
+}
+
+.price {
+  font-size: 4px;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-edit {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-edit:hover {
+  background: #1d4ed8;
+}
+
+.btn-delete {
+  background: #dc2626;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #b91c1c;
+}
+
+.empty {
+  text-align: center;
+  padding: 30px;
+  color: #6b7280;
+}
+
+@media (max-width: 768px) {
+  .product-table,
+  .product-table thead {
+    display: none;
+  }
+
+  .product-table tr {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .product-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+}

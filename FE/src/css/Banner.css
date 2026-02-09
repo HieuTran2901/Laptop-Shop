@@ -1,0 +1,114 @@
+/* ==========================
+   BANNER
+========================== */
+.banner {
+  height: 420px;
+}
+
+.banner-img {
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.9);
+}
+
+/* Overlay gradient */
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 6, 23, 0.75),
+    rgba(2, 6, 23, 0.35),
+    rgba(2, 6, 23, 0.75)
+  );
+}
+
+/* Content */
+.banner-content {
+  max-width: 720px;
+  padding: 0 20px;
+}
+
+.banner-content h1 {
+  font-size: 46px;
+  line-height: 1.2;
+}
+
+.banner-content p {
+  font-size: 18px;
+  color: #e5e7eb;
+}
+
+/* Button hover */
+.banner .btn {
+  transition: 0.25s;
+}
+
+.banner .btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+/* ==========================
+   MOBILE
+========================== */
+@media (max-width: 768px) {
+  .banner {
+    height: 320px;
+  }
+
+  .banner-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 16px;
+  }
+
+  .banner-content h1 {
+    font-size: 24px;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .banner-content p {
+    font-size: 14px;
+    margin-bottom: 16px;
+    color: #e5e7eb;
+  }
+
+  .banner-content .badge {
+    font-size: 12px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+  }
+
+  /* Button layout mobile */
+  .banner-content .d-flex {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .banner-content .btn {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px 0;
+    border-radius: 10px;
+  }
+}
+
+/* ==========================
+   SMALL MOBILE
+========================== */
+@media (max-width: 480px) {
+  .banner {
+    height: 280px;
+  }
+
+  .banner-content h1 {
+    font-size: 20px;
+  }
+
+  .banner-content p {
+    font-size: 13px;
+  }
+}

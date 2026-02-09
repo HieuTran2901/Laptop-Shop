@@ -1,0 +1,452 @@
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ===== TOP SECTION ===== */
+.productDetail {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* ===== GALLERY ===== */
+.productGallery {
+  width: 50%;
+}
+
+.mainSwiper img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* ===== THUMBNAILS ===== */
+.thumbWrapper {
+  margin-top: 15px;
+  position: relative;
+}
+
+.thumbSwiper img {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  transition: 0.2s;
+}
+
+.thumbnail:hover {
+  border-color: #bbb;
+}
+
+.active {
+  border-color: #ee4d2d;
+}
+
+/* NAV */
+.thumbNav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.thumbPrev,
+.thumbNext {
+  cursor: pointer;
+  font-size: 22px;
+  padding: 4px 10px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  user-select: none;
+}
+
+.thumbPrev:hover,
+.thumbNext:hover {
+  background: #ddd;
+}
+
+/* ===== PRODUCT INFO ===== */
+.productInfo {
+  width: 50%;
+}
+
+.productTitle {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.productMeta {
+  display: flex;
+  gap: 15px;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.brand {
+  color: #ee4d2d;
+  font-weight: 500;
+}
+
+/* ===== PRICE ===== */
+.priceBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.price {
+  font-size: 28px;
+  color: #ee4d2d;
+  font-weight: bold;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.discount {
+  color: #ee4d2d;
+  font-weight: 500;
+}
+
+/* ===== STOCK ===== */
+.inStock {
+  color: #28a745;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* ===== PROMO ===== */
+.promoBox {
+  background: #fff7f3;
+  border: 1px dashed #ee4d2d;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.promoBox h4 {
+  margin-bottom: 8px;
+}
+
+.promoBox ul {
+  padding-left: 18px;
+}
+
+/* ===== SHORT SPECS ===== */
+.specsShort p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* ===== ACTIONS ===== */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.actions input {
+  width: 70px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btnCart {
+  flex: 1;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ee4d2d;
+  color: #ee4d2d;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btnBuy {
+  flex: 1;
+  padding: 10px;
+  background: #ee4d2d;
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btnCart:hover {
+  background: #fff1eb;
+}
+
+.btnBuy:hover {
+  background: #d73211;
+}
+
+/* ===== POLICY ===== */
+.policy {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ===== BOTTOM TABS ===== */
+.productTabs {
+  margin-top: 40px;
+}
+
+.tabSection {
+  margin-bottom: 30px;
+}
+
+.tabSection h2 {
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ee4d2d;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+/* ===== SPEC TABLE ===== */
+.specTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.specTable td {
+  border: 1px solid #eee;
+  padding: 10px;
+}
+
+.specTable tr td:first-child {
+  width: 30%;
+  background: #fafafa;
+  font-weight: 500;
+}
+
+/* ===== COMMENT SECTION ===== */
+.commentSection {
+  margin-top: 50px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== TITLE ===== */
+.commentSection h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  border-left: 4px solid #ee4d2d;
+  padding-left: 10px;
+}
+
+/* ===== RATING SUMMARY ===== */
+.ratingSummary {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.ratingScore {
+  text-align: center;
+  min-width: 120px;
+}
+
+.ratingScore h3 {
+  font-size: 36px;
+  color: #ee4d2d;
+  margin-bottom: 5px;
+}
+
+.ratingScore span {
+  color: #f5a623;
+  font-size: 18px;
+}
+
+.ratingScore p {
+  font-size: 13px;
+  color: #777;
+}
+
+.ratingBars {
+  flex: 1;
+}
+
+.ratingBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.ratingTrack {
+  flex: 1;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.ratingFill {
+  height: 100%;
+  background: rgba(255, 0, 0, 0.653);
+}
+
+/* ===== COMMENT FORM ===== */
+.commentForm {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+.commentForm select,
+.commentForm textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.commentForm textarea {
+  resize: none;
+  min-height: 90px;
+}
+
+.commentForm select:focus,
+.commentForm textarea:focus {
+  outline: none;
+  border-color: #ee4d2d;
+}
+
+.commentForm button {
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: #ee4d2d;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.commentForm button:hover {
+  background: #d73211;
+}
+
+/* ===== COMMENT LIST ===== */
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ===== COMMENT ITEM ===== */
+.commentItem {
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  border: 1px solid #eee;
+  transition: 0.2s;
+}
+
+.commentItem:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.commentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.commentHeader strong {
+  font-size: 14px;
+}
+
+.commentHeader span {
+  color: #f5a623;
+  font-size: 14px;
+}
+
+/* ===== COMMENT CONTENT ===== */
+.commentItem p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.commentItem small {
+  color: #888;
+  font-size: 12px;
+}
+
+/* ===== RATING STARS ===== */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.star {
+  color: #f5a623;
+  font-size: 16px;
+}
+
+.ratingText {
+  margin-left: 6px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ===== COMMENT STARS ===== */
+.commentStars svg {
+  color: #f5a623;
+  margin-right: 2px;
+}
+
+/* ===== STAR INPUT ===== */
+.starInput {
+  display: flex;
+  gap: 6px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.starInputIcon {
+  color: #ccc;
+  transition: 0.2s;
+}
+
+.starInputIcon:hover,
+.starInputIcon:hover ~ .starInputIcon {
+  color: #f5a623;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .ratingSummary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ratingScore {
+    text-align: left;
+  }
+}
