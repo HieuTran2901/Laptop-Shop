@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { loginUser, registerUser } from "../services/userService";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const { setAuthenticated } = useCart();
 
   const navigate = useNavigate();
 
@@ -18,7 +20,8 @@ function Login() {
       // Lưu token nếu backend trả token (JWT)
       if (reponse.data.token) {
         localStorage.setItem("token", reponse.data.token);
-        console.log("Token saved:", reponse.data.token);
+        setAuthenticated(true); // Cập nhật trạng thái đăng nhập trong context
+        // console.log("Token saved:", reponse.data.token);
       }
 
       navigate("/");

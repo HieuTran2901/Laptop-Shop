@@ -196,7 +196,6 @@ function DetailProducts() {
               <input
                 type="number"
                 min="1"
-                defaultValue="1"
                 value={quantity}
                 onChange={(e) => setQuantity(+e.target.value)}
               />

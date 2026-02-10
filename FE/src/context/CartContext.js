@@ -5,6 +5,9 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
+  const [authenticated, setAuthenticated] = useState(
+    !!localStorage.getItem("token"),
+  ); // Kiểm tra token để xác định trạng thái đăng nhập
 
   const fetchCart = async () => {
     try {
@@ -35,9 +38,14 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  // fetch giỏ hàng khi component CartProvider được mount hoặc khi trạng thái đăng nhập thay đổi
   useEffect(() => {
-    fetchCart();
-  }, []);
+    if (authenticated) {
+      fetchCart();
+    } else {
+      setCartItems([]); // Xoá giỏ hàng khi người dùng đăng xuất
+    }
+  }, [authenticated]); // Theo dõi sự thay đổi của token trong localStorage
 
   const addToCart = async (productId, quantity) => {
     await cartService.addToCart(productId, quantity);
@@ -54,6 +62,8 @@ export const CartProvider = ({ children }) => {
         cartCount,
         removeFromCart,
         updateQuantity,
+        authenticated,
+        setAuthenticated,
       }}
     >
       {children}

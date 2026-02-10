@@ -154,7 +154,6 @@ function QuickView({ selectedProduct, setSelectedProduct }) {
               <input
                 type="number"
                 min="1"
-                defaultValue="1"
                 value={quantity}
                 // + trước e.target.value để convert string sang number, tránh lỗi khi cộng dồn số lượng
                 onChange={(e) => setQuantity(+e.target.value)}
