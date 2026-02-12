@@ -4,7 +4,7 @@ function DeleteProduct({ productId, onProductDeleted }) {
   const handleDelete = async () => {
     try {
       await deleteProduct(productId);
-      console.log("Product deleted:", productId);
+      // console.log("Product deleted:", productId);
       onProductDeleted(productId); // Cập nhật danh sách sản phẩm sau khi xóa
     } catch (error) {
       console.error("Error deleting product:", error);

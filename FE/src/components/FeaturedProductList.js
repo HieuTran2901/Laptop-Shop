@@ -13,7 +13,7 @@ const FeaturedProductList = () => {
     try {
       const res = await getProducts();
       // Assuming the API returns a list of products, we filter for featured ones
-      const featured = res.data.filter((product) => product.isFeatured);
+      const featured = res.data.items.filter((product) => product.isFeatured);
       setFeaturedProducts(featured);
     } catch (err) {
       console.error(err);

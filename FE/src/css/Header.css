@@ -165,6 +165,10 @@
   color: #fff;
 }
 
+.cart i {
+  cursor: pointer;
+}
+
 /* Badge */
 .cart-badge {
   position: absolute;
@@ -507,6 +511,17 @@
 
 /* ===== Mobile ===== */
 @media (max-width: 768px) {
+  .mini-cart {
+    position: absolute;
+    top: 100%;
+    right: -120px;
+    width: 320px;
+  }
+
+  .mini-cart-list::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Header layout */
   .header-container {
     flex-wrap: wrap;

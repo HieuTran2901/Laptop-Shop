@@ -1,0 +1,355 @@
+/* ================= PAGE ================= */
+.cartPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  background: rgba(220, 220, 220, 0.225);
+}
+
+.cartTitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: #111;
+}
+
+/* ================= LAYOUT ================= */
+.cartContainer {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+/* ================= CART ITEMS ================= */
+.cartItems {
+  flex: 2;
+}
+
+.emptyCart {
+  padding: 40px;
+  text-align: center;
+  color: #777;
+  background: #fafafa;
+  border-radius: 12px;
+  border: 1px dashed #ddd;
+}
+
+/* ================= ITEM CARD ================= */
+.cartItem {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 16px;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  animation: fadeIn 0.3s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cartItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Image */
+.cartItem img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* ================= ITEM DETAILS ================= */
+.itemDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.itemDetails h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+/* Price */
+.price {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e53935;
+  margin-bottom: 10px;
+}
+
+/* ================= QUANTITY ================= */
+.quantityControl {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0;
+}
+
+.quantityControl button {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.quantityControl button:hover:not(:disabled) {
+  background: #f5f5f5;
+}
+
+.quantityControl button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.quantityControl span {
+  min-width: 28px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ================= TOTAL + REMOVE ================= */
+.itemTotal {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 8px;
+}
+
+.removeBtn {
+  margin-top: 8px;
+  background: none;
+  border: none;
+  color: #e53935;
+  font-size: 14px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: opacity 0.2s ease;
+}
+
+.removeBtn:hover {
+  opacity: 0.7;
+}
+
+/* ================= SUMMARY CARD (KEEP STYLE) ================= */
+.cartSummary {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+/* Title */
+.cartSummary h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+}
+
+/* Rows */
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: #444;
+}
+
+/* Total */
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 2px dashed #ddd;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.summaryTotal span:last-child {
+  color: #e53935;
+  font-size: 20px;
+}
+
+/* Note */
+.summaryNote {
+  font-size: 12px;
+  color: #888;
+  margin: 14px 0 22px;
+  line-height: 1.5;
+}
+
+/* Checkout */
+.checkoutBtn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #ff5722, #ff6a00);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.checkoutBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(255, 87, 34, 0.35);
+}
+
+.checkoutBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* ================= ANIMATION ================= */
+.cartItem.removing {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+/* ================= RESPONSIVE (OPTIMIZED) ================= */
+@media (max-width: 768px) {
+  .cartPage {
+    padding: 16px 12px; /* Giảm padding trang để tận dụng không gian */
+  }
+
+  .cartTitle {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .cartContainer {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Danh sách sản phẩm */
+  .cartItems {
+    width: 100%;
+  }
+
+  .cartItem {
+    display: flex; /* Giữ layout ngang thay vì dọc */
+    align-items: flex-start;
+    padding: 12px;
+    gap: 12px;
+    position: relative;
+  }
+
+  .cartItem img {
+    width: 80px; /* Thu nhỏ ảnh lại */
+    height: 80px;
+    flex-shrink: 0; /* Không cho ảnh bị co lại */
+  }
+
+  .itemDetails {
+    text-align: left; /* Căn trái nội dung */
+  }
+
+  .itemName {
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 4px;
+    display: -webkit-box; /* Giới hạn tên sản phẩm trong 2 dòng */
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .itemPrice {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  /* Điều chỉnh bộ tăng giảm số lượng gọn hơn */
+  .quantityControl {
+    gap: 8px;
+    margin: 4px 0;
+  }
+
+  .quantityControl button {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .itemTotal {
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  /* Nút xoá: Chuyển thành dấu X ở góc trên bên phải hoặc giữ nguyên nhưng căn lại */
+  .removeBtn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 0; /* Ẩn chữ "Xoá sản phẩm" chỉ để lại dấu ✕ */
+    margin-top: 0;
+  }
+
+  .removeBtn::before {
+    content: "✕";
+    font-size: 18px;
+    color: #999;
+  }
+
+  /* Tổng đơn hàng */
+  .cartSummary {
+    width: 100%;
+    position: relative; /* Bỏ sticky trên mobile để dễ cuộn */
+    top: 0;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .summaryTotal span:last-child {
+    font-size: 18px;
+  }
+
+  .checkoutBtn {
+    padding: 16px;
+    font-size: 16px;
+  }
+}

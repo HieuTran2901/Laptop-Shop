@@ -88,7 +88,11 @@ function QuickView({ selectedProduct, setSelectedProduct }) {
 
               <Swiper
                 modules={[Navigation]}
-                slidesPerView={5}
+                breakpoints={{
+                  0: { slidesPerView: 4 }, // mobile
+                  640: { slidesPerView: 5 }, // tablet
+                  1024: { slidesPerView: 5 }, // desktop
+                }}
                 spaceBetween={10}
                 navigation={{
                   prevEl: ".thumb-prev",

@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
+
 import { getProducts } from "../services/productService";
+
 import QuickView from "./ProductListComponent";
+import Pagination from "./Pagination";
+
 import "../css/ProductList.css";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
-
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    fetchProducts(page);
+  }, [page]);
 
-  const fetchProducts = async () => {
+  const fetchProducts = async (page) => {
     try {
-      const res = await getProducts();
-      setProducts(res.data);
+      const res = await getProducts({ page, size: 8 });
+      setProducts(res.data.items);
+      setTotalPages(res.data.totalPage);
     } catch (err) {
       console.error(err);
     }
@@ -115,6 +121,7 @@ function ProductList() {
           setSelectedProduct={setSelectedProduct}
         />
       )}
+      <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
     </div>
   );
 }
