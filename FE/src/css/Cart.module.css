@@ -23,6 +23,8 @@
 /* ================= CART ITEMS ================= */
 .cartItems {
   flex: 2;
+  max-height: 500px;
+  overflow-y: auto;
 }
 
 .emptyCart {

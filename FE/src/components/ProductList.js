@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
-
 import { getProducts } from "../services/productService";
-
 import QuickView from "./ProductListComponent";
 import Pagination from "./Pagination";
-
-import "../css/ProductList.css";
+import styles from "../css/ProductList.module.css";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -28,24 +25,25 @@ function ProductList() {
   };
 
   return (
-    <div className="product-page">
-      <h1 className="title">💻 Laptop Shop</h1>
-      <div className="product-grid">
+    <div className={styles.productPage}>
+      <h1 className={styles.title}>💻 Laptop Shop</h1>
+
+      <div className={styles.productGrid}>
         {products.length > 0 ? (
           products.map((p) => (
-            <div key={p.id} className="product-card">
+            <div key={p.id} className={styles.productCard}>
               {/* Discount */}
-              <div className="discount-badge">
+              <div className={styles.discountBadge}>
                 -{Math.round(((p.oldPrice - p.price) / p.oldPrice) * 100)}%
               </div>
 
               {/* Wishlist */}
-              <div className="wishlist">
+              <div className={styles.wishlist}>
                 <i className="far fa-heart"></i>
               </div>
 
               {/* Image */}
-              <div className="product-image-wrap">
+              <div className={styles.productImageWrap}>
                 <img
                   src={
                     p.images && p.images.length > 0
@@ -53,14 +51,14 @@ function ProductList() {
                       : "https://surfaceviet.vn/wp-content/uploads/2024/03/Surface-Laptop-6-Platinum.png"
                   }
                   alt={p.name}
-                  className="product-image"
+                  className={styles.productImage}
                 />
 
-                {/* Hover actions */}
-                <div className="image-overlay">
+                {/* Overlay */}
+                <div className={styles.imageOverlay}>
                   <button
                     onClick={() => setSelectedProduct(p)}
-                    className="overlay-btn"
+                    className={styles.overlayBtn}
                   >
                     Quick View
                   </button>
@@ -68,28 +66,39 @@ function ProductList() {
               </div>
 
               {/* Info */}
-              <div className="product-info">
-                <h3 className="product-name">{p.name}</h3>
-                <p className="product-brand">{p.brand}</p>
+              <div className={styles.productInfo}>
+                <h3 className={styles.productName}>{p.name}</h3>
+
+                <div className={styles.brandRow}>
+                  <span className={styles.productBrand}>{p.brand}</span>
+                  <span className={styles.stock}>
+                    {p.stock > 0 ? "In Stock" : "Out of Stock"}
+                  </span>
+                </div>
 
                 {/* Rating */}
-                <div className="rating">
-                  ⭐⭐⭐⭐☆ <span>(4.5)</span>
+                <div className={styles.rating}>
+                  <span className={styles.stars}>★★★★☆</span>
+                  <span className={styles.reviewCount}>(124 reviews)</span>
+                </div>
+
+                {/* Short Specs */}
+                <div className={styles.specs}>
+                  <span>⚡ i7 / Ryzen 7</span>
+                  <span>💾 16GB RAM</span>
+                  <span>⚙️ 512GB SSD</span>
                 </div>
 
                 {/* Price */}
-                <div className="price-box">
-                  {/* <span className="price">{p.price}đ</span> */}
-
-                  {/* Use Intl.NumberFormat to format price */}
-                  <span className="price">
+                <div className={styles.priceBox}>
+                  <span className={styles.price}>
                     {new Intl.NumberFormat("vi-VN", {
                       style: "currency",
                       currency: "VND",
                     }).format(p.price)}
                   </span>
 
-                  <span className="old-price">
+                  <span className={styles.oldPrice}>
                     {new Intl.NumberFormat("vi-VN", {
                       style: "currency",
                       currency: "VND",
@@ -97,15 +106,26 @@ function ProductList() {
                   </span>
                 </div>
 
-                <p className="product-code">{p.code}</p>
+                {/* Sold Progress */}
+                <div className={styles.soldBox}>
+                  <div className={styles.soldText}>Sold: 68</div>
+                  <div className={styles.progressBar}>
+                    <div className={styles.progress}></div>
+                  </div>
+                </div>
+
+                <p className={styles.productCode}>{p.code}</p>
               </div>
 
               {/* Actions */}
-              <div className="product-actions">
-                <button className="button button-add">
+              <div className={styles.productActions}>
+                <button className={`${styles.button} ${styles.buttonAdd}`}>
                   <i className="fas fa-cart-plus"></i> Add
                 </button>
-                <button className="button button-details">Details</button>
+
+                <button className={`${styles.button} ${styles.buttonDetails}`}>
+                  Details
+                </button>
               </div>
             </div>
           ))
@@ -115,12 +135,14 @@ function ProductList() {
           </p>
         )}
       </div>
+
       {selectedProduct && (
         <QuickView
           selectedProduct={selectedProduct}
           setSelectedProduct={setSelectedProduct}
         />
       )}
+
       <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
     </div>
   );

@@ -162,7 +162,7 @@ function DetailProducts() {
 
             <div className={styles.priceBox}>
               <span className={styles.price}>{product.price}₫</span>
-              <span className={styles.oldPrice}>32.990.000₫</span>
+              <span className={styles.oldPrice}>{product.oldPrice}</span>
               <span className={styles.discount}>-12%</span>
             </div>
 
@@ -178,18 +178,14 @@ function DetailProducts() {
             </div>
 
             <div className={styles.specsShort}>
-              <p>
-                <strong>CPU:</strong> Intel Core Ultra 7
-              </p>
-              <p>
-                <strong>RAM:</strong> 16GB LPDDR5
-              </p>
-              <p>
-                <strong>SSD:</strong> 512GB NVMe
-              </p>
-              <p>
-                <strong>Màn hình:</strong> 13.8" PixelSense
-              </p>
+              {product.specs.split("\n").map((line, idx) => {
+                const [key, value] = line.split(":");
+                return (
+                  <p key={idx}>
+                    <strong>{key}:</strong> {value}
+                  </p>
+                );
+              })}
             </div>
 
             <div className={styles.actions}>
