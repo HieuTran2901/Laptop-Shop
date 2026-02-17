@@ -14,7 +14,7 @@ function AdminPage() {
 
   const fetchProducts = async () => {
     const res = await getProducts();
-    setProducts(res.data);
+    setProducts(res.data.items);
   };
 
   const handleProductAdded = (newProduct) => {

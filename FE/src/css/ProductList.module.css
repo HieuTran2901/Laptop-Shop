@@ -186,7 +186,7 @@
 .rating {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 1px;
 }
 
 .stars {
@@ -256,7 +256,8 @@
 .productBrand {
   font-size: 0.9rem;
   color: #64748b;
-  margin-bottom: 0.4rem;
+  font-weight: 600;
+  /* margin-bottom: 0.4rem; */
 }
 
 .rating {

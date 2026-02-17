@@ -1,0 +1,332 @@
+/* =====================================================
+   COMMENT SECTION
+===================================================== */
+.commentSection {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  margin-top: 40px;
+}
+
+.commentSection h2 {
+  font-size: 24px;
+  margin-bottom: 28px;
+  color: #1f2937;
+}
+
+/* =====================================================
+   RATING SUMMARY
+===================================================== */
+.ratingSummary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 24px;
+  background: #f9fafb;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.ratingOverview {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+}
+
+.averageScore h3 {
+  font-size: 48px;
+  color: #ee4d2d;
+  margin: 0 0 8px;
+}
+
+.averageStars .starLarge {
+  font-size: 32px;
+  color: #f5a623;
+  margin: 0 4px;
+}
+
+.ratingLabel {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ee4d2d;
+}
+
+.totalReviews p {
+  font-size: 15px;
+  color: #6b7280;
+  margin-top: 12px;
+}
+
+.ratingBreakdown {
+  flex: 2;
+  min-width: 300px;
+}
+
+.ratingBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.barLabel {
+  width: 40px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.barTrack {
+  flex: 1;
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: linear-gradient(90deg, #ee4d2d, #f97316);
+  transition: width 0.6s ease;
+}
+
+.barCount {
+  width: 50px;
+  font-size: 14px;
+  color: #6b7280;
+  text-align: right;
+}
+
+/* =====================================================
+   COMMENT FORM
+===================================================== */
+.commentForm {
+  padding: 24px;
+  background: #f9fafb;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.formHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.formAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.formHeader span {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.starRatingInput {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.starInput {
+  color: #d1d5db;
+  transition: color 0.2s;
+}
+
+.starInput.selected,
+.starInput:hover {
+  color: #f5a623;
+}
+
+.commentForm textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  resize: vertical;
+  min-height: 100px;
+  margin-bottom: 16px;
+}
+
+.submitButton {
+  padding: 12px 28px;
+  background: #ee4d2d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submitButton:hover {
+  background: #d73211;
+}
+
+.submitButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* =====================================================
+   COMMENT LIST
+===================================================== */
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.commentItem {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s;
+}
+
+.commentItem:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.commentAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.commentInfo {
+  flex: 1;
+}
+
+.commentInfo strong {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.commentStars .star {
+  font-size: 16px;
+  color: #f5a623;
+  margin-right: 2px;
+}
+
+.commentDate {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.commentContent {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #374151;
+  margin: 0 0 12px;
+}
+
+.replyBtn {
+  background: transparent;
+  border: none;
+  color: #ee4d2d;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.replyBtn:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+/* Mobile */
+@media (max-width: 768px) {
+  .commentSection {
+    padding: 20px 16px;
+    margin-top: 24px;
+  }
+
+  .commentSection h2 {
+    font-size: 20px;
+  }
+
+  .ratingSummary {
+    flex-direction: column;
+    gap: 24px;
+    padding: 16px;
+  }
+
+  .averageScore h3 {
+    font-size: 42px;
+  }
+
+  .averageStars .starLarge {
+    font-size: 28px;
+  }
+
+  .commentForm {
+    padding: 16px;
+  }
+
+  .starRatingInput {
+    font-size: 26px;
+    gap: 6px;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+
+  .commentItem {
+    padding: 16px;
+  }
+
+  .commentAvatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .commentContent {
+    font-size: 14px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 992px) {
+  .commentSection {
+    padding: 24px;
+  }
+
+  .ratingSummary {
+    gap: 32px;
+  }
+
+  .averageScore h3 {
+    font-size: 44px;
+  }
+
+  .averageStars .starLarge {
+    font-size: 30px;
+  }
+
+  .commentForm {
+    padding: 20px;
+  }
+}

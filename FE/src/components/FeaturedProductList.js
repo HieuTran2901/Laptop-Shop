@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../services/productService";
 import QuickView from "./ProductListComponent";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
@@ -9,6 +12,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import styles from "../css/FeaturedProduct.module.css"; // dùng chung css
+import images from "../assets/featuredproductnn.png";
 
 const FeaturedProductList = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
@@ -34,7 +38,11 @@ const FeaturedProductList = () => {
 
   return (
     <section className={styles.productPage}>
-      <h1 className={styles.title}>🔥 SẢN PHẨM NỔI BẬT</h1>
+      <img
+        src={images}
+        alt="Featured Products"
+        className={styles.bannerImage}
+      />
 
       <Swiper
         modules={[Navigation, Autoplay]}
@@ -92,18 +100,29 @@ const FeaturedProductList = () => {
 
                 {/* Info */}
                 <div className={styles.productInfo}>
-                  <h3 className={styles.productName}>{p.name}</h3>
-
                   <div className={styles.brandRow}>
-                    <span className={styles.productBrand}>{p.brand}</span>
-                    <span className={styles.stock}>
-                      {p.stock > 0 ? "In Stock" : "Out of Stock"}
+                    <span className={styles.productBrand}>
+                      {p.brand.toUpperCase()}
                     </span>
+
+                    {/* <span className={styles.productBrand}>{p.brand}</span> */}
+                    {/* <span className={styles.stock}>
+                      {p.stock > 0 ? "In Stock" : "Out of Stock"}
+                    </span> */}
                   </div>
+                  <h3 className={styles.productName}>{p.name}</h3>
 
                   {/* Rating */}
                   <div className={styles.rating}>
-                    <span className={styles.stars}>★★★★☆</span>
+                    {[...Array(5)].map((_, i) => (
+                      <FontAwesomeIcon
+                        key={i}
+                        icon={
+                          i < Math.floor(p.rating) ? solidStar : regularStar
+                        }
+                        className={styles.star}
+                      />
+                    ))}
                     <span className={styles.reviewCount}>
                       ({p.reviewCount || 0} reviews)
                     </span>
@@ -136,7 +155,7 @@ const FeaturedProductList = () => {
                   </div>
 
                   {/* Sold Progress */}
-                  <div className={styles.soldBox}>
+                  {/* <div className={styles.soldBox}>
                     <div className={styles.soldText}>Sold: {p.sold || 0}</div>
 
                     <div className={styles.progressBar}>
@@ -155,9 +174,9 @@ const FeaturedProductList = () => {
                         }}
                       ></div>
                     </div>
-                  </div>
+                  </div> */}
 
-                  <p className={styles.productCode}>{p.code}</p>
+                  {/* <p className={styles.productCode}>{p.code}</p> */}
                 </div>
 
                 {/* Actions */}

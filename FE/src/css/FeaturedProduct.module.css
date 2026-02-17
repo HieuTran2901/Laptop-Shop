@@ -3,7 +3,7 @@
 ========================== */
 .productPage {
   padding: 2.5rem 1.5rem;
-  background: linear-gradient(180deg, #f8fafc, #eef2f7);
+  background: linear-gradient(rgb(203, 49, 40), rgb(188, 27, 36)) 0% 0% / cover;
   min-height: 100vh;
 }
 
@@ -13,6 +13,16 @@
   font-weight: 800;
   color: #0f172a;
   margin-bottom: 2.5rem;
+}
+
+.bannerImage {
+  position: relative;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  border-radius: 12px;
+  margin-bottom: -160px;
 }
 
 /* ==========================
@@ -66,7 +76,7 @@
 ========================== */
 .wishlist {
   position: absolute;
-  top: 14px;
+  top: 8px;
   right: 14px;
   width: 36px;
   height: 36px;
@@ -98,8 +108,8 @@
 ========================== */
 .productImageWrap {
   position: relative;
-  height: 210px;
-  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+  height: 190px;
+  /* background: linear-gradient(135deg, #f8fafc, #eef2ff); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,7 +178,7 @@
 
 /* Brand + Stock */
 .brandRow {
-  display: flex;
+  /* display: flex; */
   justify-content: space-between;
   align-items: center;
 }
@@ -186,7 +196,7 @@
 .rating {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 2px;
 }
 
 .stars {
@@ -249,12 +259,14 @@
 
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .productBrand {
   font-size: 0.9rem;
+  font-weight: 500;
   color: #64748b;
   margin-bottom: 0.4rem;
 }
@@ -452,6 +464,7 @@
     font-size: 0.88rem;
     line-height: 1.3;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 
   .productBrand {

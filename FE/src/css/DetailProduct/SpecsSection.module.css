@@ -1,0 +1,105 @@
+/* ===== BOTTOM TABS ===== */
+.productTabs {
+  margin-top: 40px;
+}
+
+.tabSection {
+  margin-bottom: 40px;
+}
+
+.tabSection h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #ee4d2d;
+  display: inline-block;
+}
+
+/* === Phần thông số nổi bật dạng lưới === */
+.highlightGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px 24px;
+  margin-bottom: 20px;
+}
+
+.highlightItem {
+  background: #f8f9fa;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.highlightItem strong {
+  display: block;
+  color: #333;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.highlightItem span {
+  color: #555;
+  font-size: 14.5px;
+  line-height: 1.4;
+}
+
+.shortDesc {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #444;
+  margin-top: 12px;
+}
+
+/* Danh sách ưu điểm ngắn gọn hơn */
+.compactHighlightList {
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.compactHighlightList li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.compactHighlightList li::before {
+  content: "→";
+  color: #ee4d2d;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 1px;
+}
+
+/* ===== SPEC TABLE ===== */
+.specTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.specTable td {
+  border: 1px solid #e9ecef;
+  padding: 14px 16px;
+}
+
+.specTable tr td:first-child {
+  width: 32%;
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Reponsive */
+@media (max-width: 768px) {
+  .specTable td {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  .specTable tr td:first-child {
+    width: 38%;
+  }
+}

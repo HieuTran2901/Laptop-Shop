@@ -1,0 +1,86 @@
+/* ===== FAQ - NÂNG CAO ===== */
+.faqList {
+  margin-top: 24px;
+}
+
+.faqItem {
+  margin-bottom: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.faqItem:last-child {
+  margin-bottom: 0;
+}
+
+.faqQuestion {
+  width: 100%;
+  padding: 18px 24px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.25s;
+}
+
+.faqQuestion:hover {
+  background: #f9fafb;
+}
+
+.faqQuestion.active {
+  background: #fef2f2;
+  color: #ee4d2d;
+}
+
+.faqIcon {
+  font-size: 24px;
+  font-weight: bold;
+  color: #6b7280;
+  transition: transform 0.3s;
+}
+
+.faqQuestion.active .faqIcon {
+  color: #ee4d2d;
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.35s ease,
+    padding 0.35s ease;
+  background: #f9fafb;
+}
+
+.faqAnswer.open {
+  max-height: 500px; /* Điều chỉnh nếu nội dung dài hơn */
+  padding: 20px 24px;
+}
+
+.faqAnswer p {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #374151;
+}
+
+.faqAnswer ul {
+  margin: 12px 0 12px 20px;
+  padding-left: 0;
+}
+
+.faqAnswer li {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #374151;
+}

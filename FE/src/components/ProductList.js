@@ -4,6 +4,10 @@ import QuickView from "./ProductListComponent";
 import Pagination from "./Pagination";
 import styles from "../css/ProductList.module.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
+
 function ProductList() {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -26,7 +30,7 @@ function ProductList() {
 
   return (
     <div className={styles.productPage}>
-      <h1 className={styles.title}>💻 Laptop Shop</h1>
+      <h1 className={styles.title}>Chọn theo tiêu chí</h1>
 
       <div className={styles.productGrid}>
         {products.length > 0 ? (
@@ -67,26 +71,58 @@ function ProductList() {
 
               {/* Info */}
               <div className={styles.productInfo}>
+                <span className={styles.productBrand}>
+                  {p.brand.toUpperCase()}
+                </span>
                 <h3 className={styles.productName}>{p.name}</h3>
 
-                <div className={styles.brandRow}>
-                  <span className={styles.productBrand}>{p.brand}</span>
+                {/* <div className={styles.brandRow}>
                   <span className={styles.stock}>
-                    {p.stock > 0 ? "In Stock" : "Out of Stock"}
+                    {p.stock > 0 ? "Còn hàng" : "Hết hàng"}
                   </span>
-                </div>
+                </div> */}
 
                 {/* Rating */}
                 <div className={styles.rating}>
-                  <span className={styles.stars}>★★★★☆</span>
-                  <span className={styles.reviewCount}>(124 reviews)</span>
+                  {[...Array(5)].map((_, i) => (
+                    <FontAwesomeIcon
+                      key={i}
+                      icon={i < Math.floor(p.rating) ? solidStar : regularStar}
+                      className={styles.star}
+                    />
+                  ))}
+                  <span className={styles.reviewCount}>
+                    ({p.reviewCount || 0} reviews)
+                  </span>
                 </div>
 
                 {/* Short Specs */}
                 <div className={styles.specs}>
-                  <span>⚡ i7 / Ryzen 7</span>
-                  <span>💾 16GB RAM</span>
-                  <span>⚙️ 512GB SSD</span>
+                  {p.specs &&
+                    p.specs.split("\n").map((spec, index) => {
+                      const parts = spec.split(":");
+                      const key = parts[0]?.trim();
+                      const value = parts[1]?.trim() || "";
+
+                      return (
+                        <span key={index}>
+                          {key === "CPU" &&
+                            (() => {
+                              const words = value.split(" ");
+                              return (
+                                <>
+                                  ⚡ {words[1]} {words[2]} {words[4]}{" "}
+                                </>
+                              );
+                            })()}
+                          {key === "RAM" && <>💾 {value.split(" ")[0]} RAM </>}
+                          {(key === "SSD" || key === "Storage") && (
+                            <>⚙️ {value.split(" ")[0]} SSD </>
+                          )}
+                          {key === "VGA" && <>🎮 {value.split(" ")[0]} VGA </>}
+                        </span>
+                      );
+                    })}
                 </div>
 
                 {/* Price */}
@@ -107,14 +143,14 @@ function ProductList() {
                 </div>
 
                 {/* Sold Progress */}
-                <div className={styles.soldBox}>
+                {/* <div className={styles.soldBox}>
                   <div className={styles.soldText}>Sold: 68</div>
                   <div className={styles.progressBar}>
                     <div className={styles.progress}></div>
                   </div>
-                </div>
+                </div> */}
 
-                <p className={styles.productCode}>{p.code}</p>
+                {/* <p className={styles.productCode}>{p.code}</p> */}
               </div>
 
               {/* Actions */}
