@@ -1,11 +1,13 @@
 // import ProductList from "../components/ProductList";
-import AdminPage from "../pages/Admin";
+import { AdminPage } from "../pages/Admin";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import DetailProducts from "../pages/DetailProduct/DetailProduct";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
+import PaymentResult from "../components/Momo/PaymentResult";
+import { MyOrders, MyOrdersDetail } from "../pages/Orders";
 
 const publicRoutes = [
   { path: "/", component: Home },
@@ -15,6 +17,9 @@ const publicRoutes = [
   { path: "/detail-product/:id", component: DetailProducts },
   { path: "/cart", component: Cart },
   { path: "/checkout", component: Checkout },
+  { path: "/payment-result", component: PaymentResult },
+  { path: "/my-orders", component: MyOrders },
+  { path: "/my-orders/:orderCode", component: MyOrdersDetail },
 ];
 
 const privateRoutes = [

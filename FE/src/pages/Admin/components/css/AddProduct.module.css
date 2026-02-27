@@ -1,0 +1,189 @@
+/* Card */
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+.cardHeader {
+  padding: 20px 24px;
+  background: #f8fafc;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Bảng sản phẩm */
+.productTable,
+.orderTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.productTable th,
+.productTable td,
+.orderTable th,
+.orderTable td {
+  padding: 16px 20px;
+  text-align: left;
+}
+
+.productTable th,
+.orderTable th {
+  background: #f1f5f9;
+  font-weight: 600;
+  color: #475569;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.productTable tr,
+.orderTable tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.productTable tr:hover,
+.orderTable tr:hover {
+  background: #f8fafc;
+}
+
+.productImg {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.oldPrice {
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.price {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+/* Trạng thái đơn hàng */
+.statusBadge {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.statusBadge.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+.statusBadge.confirmed {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.statusBadge.shipped {
+  background: #ede9fe;
+  color: #6b21a8;
+}
+.statusBadge.delivered {
+  background: #d1fae5;
+  color: #065f46;
+}
+.statusBadge.cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Nút */
+.btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnEdit {
+  background: #3b82f6;
+  color: white;
+}
+.btnEdit:hover {
+  background: #2563eb;
+}
+
+.btnDelete {
+  background: #ef4444;
+  color: white;
+}
+.btnDelete:hover {
+  background: #dc2626;
+}
+
+.btnConfirm {
+  background: #10b981;
+  color: white;
+}
+.btnConfirm:hover {
+  background: #059669;
+}
+
+.btnView {
+  background: #6b7280;
+  color: white;
+}
+.btnView:hover {
+  background: #4b5563;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Empty & Loading */
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .productTable thead,
+  .orderTable thead {
+    display: none;
+  }
+
+  .productTable tr,
+  .orderTable tr {
+    display: block;
+    margin-bottom: 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .productTable td,
+  .orderTable td {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    padding: 8px 0;
+  }
+
+  .productTable td:before,
+  .orderTable td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #475569;
+    flex: 0 0 40%;
+  }
+
+  .actions {
+    justify-content: flex-end;
+  }
+}

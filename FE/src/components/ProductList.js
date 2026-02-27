@@ -7,22 +7,29 @@ import styles from "../css/ProductList.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
+import Filter from "./ProductListComponent/Filter";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [totalItems, setTotalItems] = useState(0);
+  const [sort, setSort] = useState("");
+
+  const [filters, setFilters] = useState({});
+  const [showFilter, setShowFilter] = useState(false);
 
   useEffect(() => {
-    fetchProducts(page);
-  }, [page]);
+    fetchProducts(page, filters, sort);
+  }, [page, filters, sort]);
 
-  const fetchProducts = async (page) => {
+  const fetchProducts = async (page, filters, sort) => {
     try {
-      const res = await getProducts({ page, size: 8 });
+      const res = await getProducts({ page, size: 8, filters, sort });
       setProducts(res.data.items);
       setTotalPages(res.data.totalPage);
+      setTotalItems(res.data.totalItems);
     } catch (err) {
       console.error(err);
     }
@@ -30,8 +37,60 @@ function ProductList() {
 
   return (
     <div className={styles.productPage}>
-      <h1 className={styles.title}>Chọn theo tiêu chí</h1>
+      <div className={styles.topBar}>
+        <div className={styles.leftSection}>
+          <h1 className={styles.title}>Laptop theo tiêu chí</h1>
+          <span className={styles.productCount}>{totalItems} sản phẩm</span>
+        </div>
 
+        <div className={styles.rightSection}>
+          <button
+            onClick={() => setShowFilter(true)}
+            className={styles.filterBtn}
+          >
+            <i className="fas fa-sliders-h"></i>
+            Bộ lọc
+            {Object.values(filters).filter(
+              (value) =>
+                value && (Array.isArray(value) ? value.length > 0 : true),
+            ).length > 0 && (
+              <span className={styles.filterBadge}>
+                {
+                  Object.values(filters).filter(
+                    (value) =>
+                      value && (Array.isArray(value) ? value.length > 0 : true),
+                  ).length
+                }
+              </span>
+            )}
+          </button>
+
+          <select
+            className={styles.sortSelect}
+            value={sort}
+            onChange={(e) => {
+              setSort(e.target.value);
+              setPage(1);
+            }}
+          >
+            <option value="">Sắp xếp</option>
+            <option value="price,asc">Giá Thấp - Cao</option>
+            <option value="price,desc">Giá Cao - Thấp</option>
+            <option value="rating,asc" disabled>
+              Đánh giá cao
+            </option>
+          </select>
+        </div>
+      </div>
+      {showFilter && (
+        <Filter
+          onClose={() => setShowFilter(false)}
+          onApply={(selected) => {
+            setFilters(selected);
+            setPage(1); // Reset về trang đầu khi áp dụng filter mới
+          }}
+        />
+      )}
       <div className={styles.productGrid}>
         {products.length > 0 ? (
           products.map((p) => (

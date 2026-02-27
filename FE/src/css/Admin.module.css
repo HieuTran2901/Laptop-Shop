@@ -1,0 +1,57 @@
+.adminWrapper {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.adminTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+/* Tabs */
+.adminTabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.tabBtn {
+  padding: 12px 28px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tabBtn.active {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+}
+
+.tabBtn:hover {
+  color: #2563eb;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .adminWrapper {
+    padding: 0 16px;
+  }
+  .adminTabs {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .tabBtn {
+    width: 100%;
+    border-radius: 8px;
+  }
+}

@@ -50,7 +50,7 @@ const Header = () => {
             </div>
           </div>
 
-          <a href="/products">Sản phẩm </a>
+          <a href="/my-orders">Sản phẩm đã mua </a>
           <a href="/admin">Quản trị</a>
         </nav>
 

@@ -2,9 +2,14 @@ import api from "./api.js";
 
 const API_URL = "http://localhost:8080/api/products";
 
-export const getProducts = ({ page = 1, size = 8 } = {}) =>
+export const getProducts = ({
+  page = 1,
+  size = 8,
+  filters = {},
+  sort = "",
+} = {}) =>
   api.get(API_URL, {
-    params: { page, size },
+    params: { page, size, ...filters, sort },
   });
 
 export const createProduct = (product) => api.post(API_URL, product);

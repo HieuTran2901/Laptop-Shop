@@ -140,10 +140,10 @@ function QuickView({ selectedProduct, setSelectedProduct }) {
 
             <ul className="quickview-specs">
               <li>
-                <strong>CPU:</strong> Intel Core i5
+                <strong>CPU:</strong> {selectedProduct.cpu}
               </li>
               <li>
-                <strong>RAM:</strong> 16GB
+                <strong>RAM:</strong> {selectedProduct.ram} GB
               </li>
               <li>
                 <strong>SSD:</strong> 512GB NVMe

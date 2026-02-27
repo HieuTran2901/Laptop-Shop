@@ -3,11 +3,13 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useCart } from "../context/CartContext";
 import styles from "../css/Checkout.module.css";
+import { createPayment } from "../services/paymentService";
+import { createOrder } from "../services/orderService";
 
 function Checkout() {
   const { cartItems } = useCart();
   const [formData, setFormData] = useState({
-    fullName: "",
+    customerName: "",
     phone: "",
     email: "",
     address: "",
@@ -27,10 +29,55 @@ function Checkout() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  // Chỉ gửi những thứ cần thiết trong cartItems để tạo order
+  const cleanCartItems = cartItems.map((item) => ({
+    product: { id: item.product.id },
+    quantity: item.quantity,
+  }));
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Cảm ơn bạn đã đặt hàng! Chúng tôi sẽ liên hệ sớm nhất.");
-    console.log("Order Data:", { ...formData, items: cartItems, total });
+    if (formData.paymentMethod === "cod") {
+      // Xử lý đặt hàng COD
+      const res = await createOrder({
+        ...formData,
+        items: cleanCartItems,
+        paymentMethod: "COD",
+      });
+
+      if (res.data) {
+        alert("Đặt hàng thành công! Shipper sẽ liên hệ bạn sớm.");
+        window.location.href = "/"; // Chuyển hướng về trang chủ
+      }
+    } else if (formData.paymentMethod === "bank") {
+      // Tạo order trước khi thanh toán để lấy orderId
+      const orderRes = await createOrder({
+        ...formData,
+        items: cleanCartItems,
+        paymentMethod: "BANK",
+      });
+
+      if (!orderRes.data) {
+        alert("Đã có lỗi xảy ra khi tạo đơn hàng. Vui lòng thử lại.");
+        return;
+      }
+
+      const orderId = orderRes.data.orderCode;
+      const totalAmount = orderRes.data.totalAmount;
+      // console.log(orderRes.data);
+
+      // Tạo payment với orderId
+      const res = await createPayment({
+        amount: totalAmount,
+        orderId: orderId,
+      });
+
+      if (res.data?.payUrl) {
+        window.location.href = res.data.payUrl; // Chuyển hướng đến trang thanh toán MoMo
+      } else {
+        alert("Đã có lỗi xảy ra khi tạo đơn hàng. Vui lòng thử lại.");
+      }
+    }
   };
 
   return (
@@ -46,7 +93,7 @@ function Checkout() {
               <div className={styles.inputGroup}>
                 <input
                   type="text"
-                  name="fullName"
+                  name="customerName"
                   placeholder="Họ và tên"
                   required
                   onChange={handleInputChange}

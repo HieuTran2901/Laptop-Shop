@@ -1,0 +1,205 @@
+/* PaymentResult.module.css */
+
+.container {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-size: 200% 200%;
+  animation: gradientBG 12s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border-radius: 1.75rem;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 520px;
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 10px 20px -8px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.35);
+}
+
+.animatedIcon {
+  width: 60%;
+  height: auto;
+  margin: 0 auto 1.5rem;
+  display: block;
+  object-fit: cover;
+}
+
+.successCard .animatedIcon {
+  animation: bounceIn 1.2s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3) translateY(-50px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15) translateY(10px);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(0.95) translateY(-5px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-8px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(8px);
+  }
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.message {
+  font-size: 1.125rem;
+  color: #475569;
+  line-height: 1.7;
+  margin: 0 0 2.5rem;
+  text-align: center;
+}
+
+.orderInfo {
+  font-size: 1.2rem;
+  color: #1e293b;
+  margin: 1rem 0 2rem;
+  text-align: center;
+}
+
+.orderId {
+  font-weight: 800;
+  color: #1d4ed8;
+  background: rgba(29, 78, 216, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btnPrimary {
+  background: linear-gradient(90deg, #3b82f6, #6366f1, #a855f7);
+  background-size: 200% 100%;
+  color: white;
+  animation: gradientBtn 4s ease infinite;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.5);
+}
+
+.btnSecondary {
+  background: white;
+  color: #1e293b;
+  border: 2px solid #cbd5e1;
+}
+
+.btnSecondary:hover {
+  background: #f1f5f9;
+  transform: translateY(-4px);
+}
+
+.spinnerContainer {
+  text-align: center;
+}
+
+.spinner {
+  width: 80px;
+  height: 80px;
+  border: 6px solid rgba(255, 255, 255, 0.2);
+  border-top: 6px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s cubic-bezier(0.6, 0.2, 0.2, 0.8) infinite;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .card {
+    padding: 2rem 1.5rem;
+    border-radius: 1.5rem;
+  }
+  h2 {
+    font-size: 1.875rem;
+  }
+  .animatedIcon {
+    width: 120px;
+    height: 120px;
+  }
+  .btn {
+    padding: 0.9rem 1.5rem;
+    font-size: 1.05rem;
+  }
+}

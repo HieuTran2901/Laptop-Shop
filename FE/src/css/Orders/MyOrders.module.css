@@ -1,0 +1,181 @@
+.ordersPage {
+  background-color: #f8fafc;
+  min-height: calc(100vh - 200px);
+  padding: 40px 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.pageTitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+/* Empty state */
+.emptyState {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.emptyState p {
+  font-size: 1.25rem;
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+.shopNowBtn {
+  background: #2563eb;
+  color: white;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.shopNowBtn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Order Card */
+.ordersList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.orderCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.orderCard:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.orderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e2e8f0;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.orderCode {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 6px;
+}
+
+.orderDate {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.statusBadge {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Body */
+.orderBody {
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.orderSummary p {
+  margin: 8px 0;
+  color: #475569;
+}
+
+.totalAmount {
+  font-size: 1.15rem;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.orderActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.detailBtn,
+.cancelBtn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.detailBtn {
+  background: #2563eb;
+  color: white;
+}
+
+.detailBtn:hover {
+  background: #1d4ed8;
+}
+
+.cancelBtn {
+  background: #ef4444;
+  color: white;
+}
+
+.cancelBtn:hover {
+  background: #dc2626;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 120px 20px;
+  font-size: 1.3rem;
+  color: #64748b;
+}
+
+@media (max-width: 768px) {
+  .orderHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .orderBody {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .orderActions {
+    width: 100%;
+    justify-content: center;
+  }
+}
