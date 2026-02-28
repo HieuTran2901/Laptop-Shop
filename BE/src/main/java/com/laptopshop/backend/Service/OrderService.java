@@ -100,7 +100,13 @@ public class OrderService {
 
     // Get all
     public Page<Order> getAllOrders(Pageable pageable) {
-        return orderRepository.findAll(pageable);
+        Pageable sortedPageable = PageRequest.of(
+                pageable.getPageNumber(),
+                pageable.getPageSize(),
+                Sort.by("createdAt").descending()
+        );
+
+        return orderRepository.findAll(sortedPageable);
     }
 
     // Get by user

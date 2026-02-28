@@ -1,9 +1,23 @@
 import { useState } from "react";
 import styles from "../../css/Admin.module.css";
 import { AddProduct, OrderManagerModal } from "./components";
+import { jwtDecode } from "jwt-decode";
+import { Navigate } from "react-router-dom";
+import CheckRoleModal from "./components/CheckRoleModal";
 
 function AdminPage() {
   const [activeTab, setActiveTab] = useState("products");
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    return <Navigate to="/login" />;
+  }
+
+  const decode = jwtDecode(token);
+
+  if (decode.role !== "ADMIN") {
+    return <CheckRoleModal />;
+  }
 
   return (
     <div className={styles.adminWrapper}>

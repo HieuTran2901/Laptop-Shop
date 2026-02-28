@@ -26,7 +26,7 @@ public class AuthController {
         if (userService.getAllUsers().stream().anyMatch(u -> u.getUserName().equals(req.getUsername()))) {
             return ResponseEntity.badRequest().body("Username already exists");
         }
-        User user = new User(req.getUsername(), req.getPassword(), req.getEmail(), "ROLE_USER");
+        User user = new User(req.getUsername(), req.getPassword(), req.getEmail(), "USER");
         User saved = userService.registerUser(user);
         return ResponseEntity.ok(saved.getUserName());
     }
@@ -38,7 +38,7 @@ public class AuthController {
         if (user == null) {
             return ResponseEntity.status(401).body("Invalid credentials");
         }
-        String token = jwtUtil.generateToken(user.getUserName());
+        String token = jwtUtil.generateToken(user.getUserName(), user.getRole());
         return ResponseEntity.ok(new LoginResponse(token));
     }
 }
