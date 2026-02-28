@@ -1,10 +1,12 @@
 package com.laptopshop.backend.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
 
 @Entity
+@Data
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +18,13 @@ public class Product {
     private Double price;
     private Double oldPrice;
     private String category;
+    private Integer ram;
+    private String cpu;
+
+    @Column(name = "is_featured")
+    private Boolean isFeatured = false;
+
+
     @ElementCollection
     @CollectionTable(
             name = "product_images",
@@ -34,6 +43,14 @@ public class Product {
 
     // Getter, Setter
     public Long getId() { return id; }
+
+    public Boolean getFeatured() {
+        return isFeatured;
+    }
+
+    public void setFeatured(Boolean featured) {
+        isFeatured = featured;
+    }
 
     public String getCode() {return  code; }
 

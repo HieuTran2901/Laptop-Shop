@@ -1,13 +1,17 @@
 package com.laptopshop.backend.Service;
 
-
 import com.laptopshop.backend.model.Cart;
 import com.laptopshop.backend.model.CartItem;
 import com.laptopshop.backend.model.Product;
 import com.laptopshop.backend.model.User;
+import com.laptopshop.backend.repository.CartItemRepository;
 import com.laptopshop.backend.repository.CartRepository;
 import com.laptopshop.backend.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -17,6 +21,7 @@ import java.util.Optional;
 public class CartService {
     private final CartRepository cartRepository;
     private final ProductRepository productRepository;
+    private final CartItemRepository cartItemRepository;
 
     public Cart getCartByUser(User user) {
         return cartRepository.findByUser(user)
@@ -25,6 +30,12 @@ public class CartService {
                     cart.setUser(user);
                     return cartRepository.save(cart);
                 });
+    }
+
+    public Page<CartItem> getCartItems(User user, int page, int size) {
+        Cart cart = getCartByUser(user);
+        Pageable pageable = PageRequest.of(page,size, Sort.by("id").descending());
+        return cartItemRepository.findByCart(cart,pageable);
     }
 
     public Cart addToCart(User user, Long productId, int quantity) {

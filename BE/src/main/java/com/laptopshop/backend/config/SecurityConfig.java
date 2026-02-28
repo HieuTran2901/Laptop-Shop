@@ -40,6 +40,7 @@ public class SecurityConfig {
 
 //                      //Các api khác trong user phải xác thực mới dc vào
                         .requestMatchers("/api/users/**","/api/products/**").authenticated()
+                                .requestMatchers("/api/payment/momo/ipn").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
